@@ -312,8 +312,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
       override fun onPageScrollStateChanged(state: Int) = Unit
       override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         if ((selectedIndex > position && previousPosition < positionOffset)) {
-          indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
-          previousPosition = positionOffset
+          post {
+            indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+            previousPosition = positionOffset
+          }
         }
       }
 
@@ -333,7 +335,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
       override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         super.onPageScrolled(position, positionOffset, positionOffsetPixels)
         if ((selectedIndex > position && previousPosition < positionOffset)) {
-          indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+          post {
+            indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+            previousPosition = positionOffset
+          }
         }
       }
 
