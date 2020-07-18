@@ -20,6 +20,7 @@
 </p>
 
 ## Including in your project
+[![Download](https://api.bintray.com/packages/devmagician/maven/androidbottombar/images/download.svg) ](https://bintray.com/devmagician/maven/androidbottombar/_latestVersion)
 [![Jitpack](https://jitpack.io/v/skydoves/AndroidBottomBar.svg)](https://jitpack.io/#skydoves/AndroidBottomBar)
 ### Gradle
 Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
