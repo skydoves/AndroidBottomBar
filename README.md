@@ -19,6 +19,10 @@
 <img src="https://user-images.githubusercontent.com/24237865/87853258-b3843800-c943-11ea-8ded-a9ec068e7862.gif" width="32%"/>
 <img src="https://user-images.githubusercontent.com/24237865/87856728-f05c2900-c95b-11ea-86b0-1740a6794ac2.gif" width="32%"/>
 </p>
+<br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/24237865/87857471-e2a9a200-c961-11ea-838d-529ef2bfe8f7.gif" width="64%%"/>
+</p>
 
 ## Including in your project
 [![Download](https://api.bintray.com/packages/devmagician/maven/androidbottombar/images/download.svg) ](https://bintray.com/devmagician/maven/androidbottombar/_latestVersion)
