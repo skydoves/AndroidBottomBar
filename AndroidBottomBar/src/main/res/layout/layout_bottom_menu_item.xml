@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:maxLines="1"
+    android:textColor="@android:color/white"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:visibility="gone" />
+
+  <FrameLayout
+    android:id="@+id/icon_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/icon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:scaleType="centerInside" />
+  </FrameLayout>
+
+  <TextView
+    android:id="@+id/badge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:includeFontPadding="false"
+    android:maxLength="5"
+    android:maxLines="1"
+    android:visibility="gone" />
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="AndroidBottomBarView">
+    <!-- decides which type (icon, title) will be shown as default (unselected). -->
+    <attr name="bottomBar_flavor" format="enum">
+      <enum name="icon" value="0" />
+      <enum name="title" value="1" />
+    </attr>
+    <!-- animations for selected or unselected BottomMenuItemView with an interpolator. -->
+    <attr name="bottomBar_menuAnimation" format="enum">
+      <enum name="normal" value="0" />
+      <enum name="accelerate" value="1" />
+      <enum name="bounce" value="2" />
+      <enum name="overshoot" value="3" />
+    </attr>
+    <!-- preselected index when initialized. -->
+    <attr name="bottomBar_selectedIndex" format="integer" />
+    <!-- duration of the menu animation. -->
+    <attr name="bottomBar_duration" format="integer" />
+    <!-- visibility of the indicator. -->
+    <attr name="bottomBar_indicator_visible" format="boolean" />
+    <!-- color of the indicator. -->
+    <attr name="bottomBar_indicator_color" format="color" />
+    <!-- drawable of the indicator. -->
+    <attr name="bottomBar_indicator_drawable" format="reference" />
+    <!-- corner radius of the indicator. -->
+    <attr name="bottomBar_indicator_radius" format="dimension" />
+    <!-- height of the indicator. -->
+    <attr name="bottomBar_indicator_height" format="dimension" />
+    <!-- padding of the indicator. -->
+    <attr name="bottomBar_indicator_padding" format="dimension" />
+  </declare-styleable>
+</resources>

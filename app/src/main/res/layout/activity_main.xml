@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/background">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <include
+      android:id="@+id/main_toolbar"
+      layout="@layout/toolbar_home" />
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.viewpager.widget.ViewPager
+    android:id="@+id/viewpager"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:layout_constraintBottom_toTopOf="@+id/androidBottomBar"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+  <com.skydoves.androidbottombar.AndroidBottomBarView
+    android:id="@+id/androidBottomBar"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@color/colorPrimary"
+    app:bottomBar_duration="300"
+    app:bottomBar_flavor="icon"
+    app:bottomBar_indicator_color="@color/md_blue_200"
+    app:bottomBar_indicator_height="4dp"
+    app:bottomBar_indicator_padding="6dp"
+    app:bottomBar_indicator_radius="12dp"
+    app:bottomBar_indicator_visible="true"
+    app:bottomBar_menuAnimation="overshoot"
+    app:bottomBar_selectedIndex="1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
