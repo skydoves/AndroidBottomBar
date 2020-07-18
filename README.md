@@ -286,7 +286,7 @@ androidBottomBar.setOnBottomMenuInitializedListener {
 ```
 
 ### bindViewPager, bindViewPager2
-We can bind a [ViewPager] to [AndroidBottomBarView] for selecting menu items and moving an indicator<br> 
+We can bind a `ViewPager` and `ViewPager2` to the `AndroidBottomBarView` for selecting menu items and moving an indicator<br> 
 automatically by scrolling of viewPager.
 ```kotlin
 androidBottomBar.setOnBottomMenuInitializedListener {
