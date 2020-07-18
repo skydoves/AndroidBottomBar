@@ -305,6 +305,14 @@ We can customize the selected/unselected animations of menu items and an indicat
 app:bottomBar_menuAnimation="overshoot" // normal, accelerate, bounce, overshoot
 ```
 
+NORMAL | OVERSHOOT |
+| :---------------: | :---------------: |
+| <img src="https://user-images.githubusercontent.com/24237865/87857934-8b0d3580-c965-11ea-9c79-e7b643e87b6d.gif" align="center" width="100%"/> | <img src="https://user-images.githubusercontent.com/24237865/87857938-8cd6f900-c965-11ea-9dd6-1da48690be6d.gif" align="center" width="100%"/> | <img src="https://user-
+
+ACCELERATE | BOUNCE |
+| :---------------: | :---------------: |
+| <img src="https://user-images.githubusercontent.com/24237865/87857940-8cd6f900-c965-11ea-9287-89e04ef92990.gif" align="center" width="100%"/> | <img src="https://user-images.githubusercontent.com/24237865/87857942-8d6f8f80-c965-11ea-8117-8889daa72aa8.gif" align="center" width="100%"/> | <img src="https://user-
+
 ## AndroidBottomBarView Attributes
 Attributes | Type | Default | Description
 --- | --- | --- | ---
