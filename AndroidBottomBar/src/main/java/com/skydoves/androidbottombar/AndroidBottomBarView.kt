@@ -23,6 +23,7 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
@@ -144,6 +145,8 @@ class AndroidBottomBarView @JvmOverloads constructor(
       _indicatorPadding = dp2Px(value)
       initializeIndicator()
     }
+
+  private var previousPosition: Float = 0f
 
   init {
     obtainStyledAttributes(attrs, defStyleAttr)
@@ -308,7 +311,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
     viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
       override fun onPageScrollStateChanged(state: Int) = Unit
       override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+        if ((selectedIndex > position && previousPosition < positionOffset)) {
+          indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+          previousPosition = positionOffset
+        }
       }
 
       override fun onPageSelected(position: Int) {
@@ -326,7 +332,9 @@ class AndroidBottomBarView @JvmOverloads constructor(
     viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
       override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-        indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+        if ((selectedIndex > position && previousPosition < positionOffset)) {
+          indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+        }
       }
 
       override fun onPageSelected(position: Int) {
@@ -372,6 +380,7 @@ class AndroidBottomBarView @JvmOverloads constructor(
   }
 
   private fun animateIndicator(config: BottomMenuItemViewConfig) {
+    Log.e("Test", "${config.animation}")
     if (visibleIndicator) {
       with(indicator) {
         translateX(
