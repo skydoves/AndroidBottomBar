@@ -15,8 +15,9 @@
 </p>
 <br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/24237865/87853257-aff0b100-c943-11ea-9470-6f8bd109f30d.gif" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/87856727-ecc8a200-c95b-11ea-85d8-2ff9221736e8.gif" width="32%"/>
 <img src="https://user-images.githubusercontent.com/24237865/87853258-b3843800-c943-11ea-8ded-a9ec068e7862.gif" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/87856728-f05c2900-c95b-11ea-86b0-1740a6794ac2.gif" width="32%"/>
 </p>
 
 ## Including in your project
