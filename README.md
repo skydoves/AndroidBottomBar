@@ -11,6 +11,11 @@
   <a href="https://android-arsenal.com/api?level=17"><img alt="API" src="https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat"/></a>
   <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a>
 </p>
+<br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/24237865/87853257-aff0b100-c943-11ea-9470-6f8bd109f30d.gif" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/87853258-b3843800-c943-11ea-8ded-a9ec068e7862.gif" width="32%"/>
+</p>
 
 ## Including in your project
 ### Gradle
@@ -96,6 +101,11 @@ The default flavor is icon.
 ```kotlin
 app:bottomBar_flavor="icon"
 ```
+
+| ICON | TITLE |
+| :---------------: | :---------------: |
+| <img src="https://user-images.githubusercontent.com/24237865/87853260-b5e69200-c943-11ea-8431-f8662f01a779.png" align="center" width="100%"/> | <img src="https://user-images.githubusercontent.com/24237865/87853261-b5e69200-c943-11ea-86ab-5ec3456cc8cf.png" align="center" width="100%"/>
+
 
 ### Indicator
 We can customize the indicator using below attributes.
