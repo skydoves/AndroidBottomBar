@@ -262,6 +262,17 @@ androidBottomBar.addBottomMenuItems(mutableListOf(
         // ** //
 ```
 
+#### BadgeAnimation
+We can customize badge animations using the below method.
+```gradle
+.setBadgeAnimation(BadgeAnimation.FADE) // fade, scale
+```
+
+FADE | SCALE |
+| :---------------: | :---------------: |
+| <img src="https://user-images.githubusercontent.com/24237865/87858267-aaa55d80-c967-11ea-998b-dc7980922a77.gif" align="center" width="100%"/> | <img src="https://user-images.githubusercontent.com/24237865/87858287-cdd00d00-c967-11ea-9265-c92a880682fd.gif" align="center" width="100%"/> | <img src="https://user-
+
+
 ### OnMenuItemSelectedListener
 We can listen to menu items are selected.<br>
 The listener gives us `index`, `bottomMenuItem`, and `fromUser` arguments.
