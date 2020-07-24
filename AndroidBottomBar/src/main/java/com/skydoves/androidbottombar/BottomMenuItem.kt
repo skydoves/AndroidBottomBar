@@ -117,7 +117,9 @@ open class BottomMenuItem(context: Context) {
   fun setBadgeTextColor(@ColorInt value: Int) = apply { this.badgeForm.setBadgeTextColor(value) }
 
   /** sets the text color of the badge using resource. */
-  fun setBadgeTextColorRes(@ColorRes value: Int) = apply { this.badgeForm.setBadgeTextColorRes(value) }
+  fun setBadgeTextColorRes(@ColorRes value: Int) = apply {
+    this.badgeForm.setBadgeTextColorRes(value)
+  }
 
   /** sets the size of the badge. */
   fun setBadgeTextSize(@Sp value: Float) = apply { this.badgeForm.setBadgeTextSize(value) }

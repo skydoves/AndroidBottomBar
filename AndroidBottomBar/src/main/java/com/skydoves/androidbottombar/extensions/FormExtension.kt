@@ -35,7 +35,8 @@ internal fun TextView.applyTitleForm(titleForm: TitleForm) {
   gravity = titleForm.titleGravity
   setTextColor(titleForm.titleColor)
   titleForm.titleTypeface?.let { typeface = it } ?: setTypeface(typeface, titleForm.titleStyle)
-  setPadding(titleForm.titlePadding, titleForm.titlePadding, titleForm.titlePadding, titleForm.titlePadding)
+  setPadding(titleForm.titlePadding, titleForm.titlePadding, titleForm.titlePadding,
+    titleForm.titlePadding)
 }
 
 /** applies icon form attributes to a ImageView instance. */
@@ -59,7 +60,8 @@ internal fun TextView.applyBadgeForm(badgeForm: BadgeForm) {
     cornerRadius = badgeForm.badgeRadius.toFloat()
   }
   setPadding(
-    badgeForm.badgePaddingLeft, badgeForm.badgePaddingTop, badgeForm.badgePaddingRight, badgeForm.badgePaddingBottom)
+    badgeForm.badgePaddingLeft, badgeForm.badgePaddingTop, badgeForm.badgePaddingRight,
+    badgeForm.badgePaddingBottom)
   (layoutParams as ViewGroup.MarginLayoutParams).setMargins(
     badgeForm.badgeMargin, badgeForm.badgeMargin, badgeForm.badgeMargin, badgeForm.badgeMargin)
 }

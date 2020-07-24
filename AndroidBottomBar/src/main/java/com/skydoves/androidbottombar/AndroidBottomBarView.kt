@@ -23,7 +23,6 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
@@ -358,7 +357,11 @@ class AndroidBottomBarView @JvmOverloads constructor(
   /** sets an [OnMenuItemSelectedListener] using an lambda. */
   fun setOnMenuItemSelectedListener(block: (index: Int, bottomMenuItem: BottomMenuItem, fromUser: Boolean) -> Unit) {
     this.onMenuItemSelectedListener = object : OnMenuItemSelectedListener {
-      override fun onMenuItemSelected(index: Int, bottomMenuItem: BottomMenuItem, fromUser: Boolean) {
+      override fun onMenuItemSelected(
+        index: Int,
+        bottomMenuItem: BottomMenuItem,
+        fromUser: Boolean
+      ) {
         block(index, bottomMenuItem, fromUser)
       }
     }
@@ -385,7 +388,6 @@ class AndroidBottomBarView @JvmOverloads constructor(
   }
 
   private fun animateIndicator(config: BottomMenuItemViewConfig) {
-    Log.e("Test", "${config.animation}")
     if (visibleIndicator) {
       with(indicator) {
         translateX(
