@@ -69,6 +69,12 @@ open class BottomMenuItem(context: Context) {
 
   /** sets the color of the title using resource. */
   fun setTitleColorRes(@ColorRes value: Int) = apply { this.titleForm.setTitleColorRes(value) }
+  
+  /** sets the color of the title. */
+  fun setTitleActiveColor(@ColorInt value: Int) = apply { this.titleForm.setTitleActiveColor(value) }
+  
+  /** sets the color of the title using resource. */
+  fun setTitleActiveColorRes(@ColorRes value: Int) = apply { this.titleForm.setTitleActiveColorRes(value) }
 
   /** sets the size of the title. */
   fun setTitleSize(@Sp value: Float) = apply { this.titleForm.setTitleSize(value) }
@@ -102,6 +108,14 @@ open class BottomMenuItem(context: Context) {
   /** sets the color of the icon using resource */
   fun setIconColorRes(@ColorRes value: Int) = apply {
     this.iconForm.setIconColorRes(value)
+  }
+  
+  /** sets the color of the icon. */
+  fun setIconActiveColor(@ColorInt value: Int) = apply { this.iconForm.setIconActiveColor(value) }
+  
+  /** sets the color of the icon using resource */
+  fun setIconActiveColorRes(@ColorRes value: Int) = apply {
+    this.iconForm.setIconActiveColorRes(value)
   }
 
   /** sets a background drawable of the badge */
