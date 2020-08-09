@@ -85,6 +85,9 @@ class AndroidBottomBarView @JvmOverloads constructor(
         onMenuItemSelectedListener?.onMenuItemSelected(it.index, it.bottomMenuItem, true)
       }
     }
+    bottomMenuItemViews.forEach {
+      it.setIsActive(it == view)
+    }
   }
 
   private var _visibleIndicator: Boolean = true

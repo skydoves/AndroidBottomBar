@@ -77,11 +77,13 @@ androidBottomBar.addBottomMenuItems(mutableListOf(
       BottomMenuItem(this)
         .setTitle("Movie") // sets the content of the title.
         .setTitleColorRes(R.color.black) // sets the color of the title using resource.
+        .setTitleActiveColorRes(R.color.white) // sets the color of the title when selected/active.
         .setTitlePadding(6) // sets the padding of the title.
         .setTitleSize(14f) // sets the size of the title.
         .setTitleGravity(Gravity.CENTER) // sets gravity of the title.
         .setIcon(R.drawable.ic_movie)
         .setIconColorRes(R.color.md_blue_200) // sets the [Drawable] of the icon using resource.
+        .setIconActiveColorRes(R.color.md_blue_200) // sets the color of the icon when selected/active.
         .setBadgeText("New!") // sets the content of the badge.
         .setBadgeTextSize(9f) // sets the size of the badge.
         .setBadgeTextColorRes(R.color.white) // sets the text color of the badge using resource.
@@ -131,6 +133,7 @@ We can customize the title of the menu item.
 ```kotlin
 .setTitle("Movie") // sets the content of the title.
 .setTitleColorRes(R.color.black) // sets the color of the title using resource.
+.setTitleActiveColorRes(R.color.white) // sets the color of the title when selected/active.
 .setTitlePadding(6) // sets the padding of the title.
 .setTitleSize(14f) // sets the size of the title.
 .setTitleGravity(Gravity.CENTER) // sets gravity of the title.
@@ -177,6 +180,7 @@ We can customize the icon of the menu item.
 ```kotlin
 .setIcon(R.drawable.ic_movie)
 .setIconColorRes(R.color.md_blue_200) // sets the [Drawable] of the icon using resource.
+.setIconActiveColorRes(R.color.md_blue_200) // sets the color of the icon when selected/active.
 .setIconSize(24) // sets the size of the icon.
 ```
 

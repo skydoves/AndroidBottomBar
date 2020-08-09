@@ -17,10 +17,12 @@
 package com.skydoves.androidbottombar
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.widget.ImageViewCompat
 import com.skydoves.androidbottombar.animations.BadgeAnimation
 import com.skydoves.androidbottombar.animations.getInterpolator
 import com.skydoves.androidbottombar.databinding.LayoutBottomMenuItemBinding
@@ -118,6 +120,20 @@ class BottomMenuItemView @JvmOverloads constructor(
         target = unSelectedView,
         config = config,
         from = -layoutHeight)
+    }
+  }
+
+  fun setIsActive(isActive: Boolean) {
+    this.config?.let { config ->
+      binding.title.setTextColor(
+        if (isActive) config.bottomMenuItem.titleForm.titleActiveColor
+        else config.bottomMenuItem.titleForm.titleColor)
+      ImageViewCompat.setImageTintList(
+        binding.icon,
+        ColorStateList.valueOf(
+          if (isActive) config.bottomMenuItem.iconForm.iconActiveColor
+          else config.bottomMenuItem.iconForm.iconColor)
+      )
     }
   }
 

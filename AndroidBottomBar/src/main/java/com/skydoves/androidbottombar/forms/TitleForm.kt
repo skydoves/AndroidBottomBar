@@ -58,6 +58,9 @@ data class TitleForm(private val builder: Builder) {
 
   @ColorInt
   val titleColor: Int = builder.titleColor
+  
+  @ColorInt
+  val titleActiveColor: Int = builder.titleActiveColor
 
   /** Builder class for [TitleForm]. */
   @TitleFormDsl
@@ -69,6 +72,10 @@ data class TitleForm(private val builder: Builder) {
     @ColorInt
     @JvmField
     var titleColor: Int = Color.WHITE
+  
+    @ColorInt
+    @JvmField
+    var titleActiveColor: Int = Color.WHITE
 
     @Sp
     @JvmField
@@ -98,6 +105,12 @@ data class TitleForm(private val builder: Builder) {
 
     /** sets the color of the title using resource. */
     fun setTitleColorRes(@ColorRes value: Int) = apply { this.titleColor = context.contextColor(value) }
+  
+    /** sets the active color of the title. */
+    fun setTitleActiveColor(@ColorInt value: Int) = apply { this.titleActiveColor = value }
+  
+    /** sets the active color of the title using resource. */
+    fun setTitleActiveColorRes(@ColorRes value: Int) = apply { this.titleActiveColor = context.contextColor(value) }
 
     /** sets the size of the title. */
     fun setTitleSize(@Sp value: Float) = apply { this.titleSize = value }
