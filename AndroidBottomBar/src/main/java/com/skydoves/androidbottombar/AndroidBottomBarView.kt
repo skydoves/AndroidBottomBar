@@ -244,6 +244,7 @@ class AndroidBottomBarView @JvmOverloads constructor(
             onMenuItemSelectedListener?.onMenuItemSelected(
               selectedIndex, requireNotNull(config?.bottomMenuItem), false)
             animateBottomBarItem(this)
+            setIsActive(true)
           }
           if (index == bottomMenuItems.size - 1) {
             onBottomMenuInitializedListener?.onInitialized()

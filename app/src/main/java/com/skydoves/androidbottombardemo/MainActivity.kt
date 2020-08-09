@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     androidBottomBar.addBottomMenuItems(mutableListOf(
       BottomMenuItem(this)
         .setTitle("Movie")
+        .setTitleActiveColorRes(R.color.md_blue_200)
         .setBadgeForm(badgeForm)
         .setBadgeColorRes(R.color.md_blue_200)
         .setBadgeAnimation(BadgeAnimation.FADE)
@@ -54,11 +55,13 @@ class MainActivity : AppCompatActivity() {
 
       BottomMenuItem(this)
         .setTitle("Tv")
+        .setTitleActiveColorRes(R.color.md_blue_200)
         .setIcon(R.drawable.ic_tv)
         .build(),
 
       BottomMenuItem(this)
         .setTitle("star")
+        .setTitleActiveColorRes(R.color.md_blue_200)
         .setBadgeForm(badgeForm)
         .setBadgeText("⭐⭐⭐")
         .setBadgeColorRes(R.color.white)
@@ -69,12 +72,12 @@ class MainActivity : AppCompatActivity() {
 
       BottomMenuItem(this)
         .setTitle("Social")
+        .setTitleActiveColorRes(R.color.md_blue_200)
         .setBadgeForm(badgeForm)
         .setBadgeColorRes(R.color.md_red_900)
         .setBadgeAnimation(BadgeAnimation.SCALE)
         .setBadgeText("999+")
         .setIcon(R.drawable.ic_social)
-        .setTitleActiveColorRes(R.color.md_red_600)
         .build())
     )
 
