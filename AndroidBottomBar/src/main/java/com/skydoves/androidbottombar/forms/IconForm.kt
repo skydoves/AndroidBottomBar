@@ -51,7 +51,7 @@ data class IconForm(private val builder: Builder) {
 
   @ColorInt
   val iconColor = builder.iconColor
-  
+
   @ColorInt
   val iconActiveColor = builder.iconActiveColor
 
@@ -69,7 +69,7 @@ data class IconForm(private val builder: Builder) {
     @ColorInt
     @JvmField
     var iconColor: Int = Color.WHITE
-  
+
     @ColorInt
     @JvmField
     var iconActiveColor: Int = Color.WHITE
@@ -92,10 +92,10 @@ data class IconForm(private val builder: Builder) {
     fun setIconColorRes(@ColorRes value: Int) = apply {
       this.iconColor = context.contextColor(value)
     }
-  
+
     /** sets the active color of the icon. */
     fun setIconActiveColor(@ColorInt value: Int) = apply { this.iconActiveColor = value }
-  
+
     /** sets the active color of the icon using resource */
     fun setIconActiveColorRes(@ColorRes value: Int) = apply {
       this.iconActiveColor = context.contextColor(value)

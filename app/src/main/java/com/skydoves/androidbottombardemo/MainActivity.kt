@@ -23,7 +23,6 @@ import com.skydoves.androidbottombar.BottomMenuItem
 import com.skydoves.androidbottombar.OnMenuItemSelectedListener
 import com.skydoves.androidbottombar.animations.BadgeAnimation
 import com.skydoves.androidbottombar.forms.badgeForm
-import com.skydoves.androidbottombar.forms.titleForm
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

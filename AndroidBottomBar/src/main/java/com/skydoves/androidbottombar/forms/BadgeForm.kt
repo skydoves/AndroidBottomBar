@@ -114,28 +114,58 @@ data class BadgeForm(private val builder: Builder) {
     var badgeTypeface: Typeface? = null
 
     @Px
-    @JvmField
-    var badgeMargin: Int = context.dp2Px(8)
+    private var _badgeMargin: Int = context.dp2Px(8)
+
+    var badgeMargin: Int
+      @Px get() = _badgeMargin
+      set(@Dp value) {
+        _badgeMargin = context.dp2Px(value)
+      }
 
     @Px
-    @JvmField
-    var badgePaddingLeft: Int = context.dp2Px(6)
+    private var _badgePaddingLeft: Int = context.dp2Px(6)
+
+    var badgePaddingLeft: Int
+      @Px get() = _badgePaddingLeft
+      set(@Dp value) {
+        _badgePaddingLeft = context.dp2Px(value)
+      }
 
     @Px
-    @JvmField
-    var badgePaddingTop: Int = context.dp2Px(2)
+    private var _badgePaddingTop: Int = context.dp2Px(2)
+
+    var badgePaddingTop: Int
+      @Px get() = _badgePaddingTop
+      set(@Dp value) {
+        _badgePaddingTop = context.dp2Px(value)
+      }
 
     @Px
-    @JvmField
-    var badgePaddingRight: Int = context.dp2Px(6)
+    private var _badgePaddingRight: Int = context.dp2Px(6)
+
+    var badgePaddingRight: Int
+      @Px get() = _badgePaddingRight
+      set(@Dp value) {
+        _badgePaddingRight = context.dp2Px(value)
+      }
 
     @Px
-    @JvmField
-    var badgePaddingBottom: Int = context.dp2Px(2)
+    private var _badgePaddingBottom: Int = context.dp2Px(2)
+
+    var badgePaddingBottom: Int
+      @Px get() = _badgePaddingBottom
+      set(@Dp value) {
+        _badgePaddingBottom = context.dp2Px(value)
+      }
 
     @Px
-    @JvmField
-    var badgeRadius: Int = context.dp2Px(16)
+    private var _badgeRadius: Int = context.dp2Px(16)
+
+    var badgeRadius: Int
+      @Px get() = _badgeRadius
+      set(@Dp value) {
+        _badgeRadius = context.dp2Px(value)
+      }
 
     @JvmField
     var badgeGravity: Int = Gravity.CENTER

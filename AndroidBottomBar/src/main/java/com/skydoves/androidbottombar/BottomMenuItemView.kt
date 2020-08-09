@@ -123,16 +123,23 @@ class BottomMenuItemView @JvmOverloads constructor(
     }
   }
 
+  /** sets an activation of the title and icon. */
   fun setIsActive(isActive: Boolean) {
     this.config?.let { config ->
       binding.title.setTextColor(
-        if (isActive) config.bottomMenuItem.titleForm.titleActiveColor
-        else config.bottomMenuItem.titleForm.titleColor)
+        if (isActive) {
+          config.bottomMenuItem.titleForm.titleActiveColor
+        } else {
+          config.bottomMenuItem.titleForm.titleColor
+        })
       ImageViewCompat.setImageTintList(
         binding.icon,
         ColorStateList.valueOf(
-          if (isActive) config.bottomMenuItem.iconForm.iconActiveColor
-          else config.bottomMenuItem.iconForm.iconColor)
+          if (isActive) {
+            config.bottomMenuItem.iconForm.iconActiveColor
+          } else {
+            config.bottomMenuItem.iconForm.iconColor
+          })
       )
     }
   }
