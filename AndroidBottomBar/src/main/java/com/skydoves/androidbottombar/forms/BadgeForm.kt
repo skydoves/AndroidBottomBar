@@ -40,50 +40,35 @@ annotation class BadgeFormDsl
 
 /** creates an instance of [BadgeForm] from [BadgeForm.Builder] using kotlin dsl. */
 @BadgeFormDsl
-inline fun badgeForm(context: Context, block: BadgeForm.Builder.() -> Unit): BadgeForm.Builder =
-  BadgeForm.Builder(context).apply(block)
+inline fun badgeForm(context: Context, block: BadgeForm.Builder.() -> Unit): BadgeForm =
+  BadgeForm.Builder(context).apply(block).build()
 
 /**
  * [BadgeForm] is an attribute class that has some attributes about text
  * for customizing menu item badge easily.
  */
-data class BadgeForm(private val builder: Builder) {
+data class BadgeForm(
 
-  val badge: Drawable? = builder.badge
-  val badgeText: CharSequence = builder.badgeText
-  val badgeStyle: Int = builder.badgeStyle
-  val badgeTypeface: Typeface? = builder.badgeTypeface
-  val badgeGravity: Int = builder.badgeGravity
-  val badgeDuration: Long = builder.badgeDuration
-  val badgeAnimation: BadgeAnimation = builder.badgeAnimation
-  var badgeAnimationInterpolator: BadgeAnimationInterpolator = builder.badgeAnimationInterpolator
+  var badge: Drawable? = null,
+  var badgeText: CharSequence = "",
+  var badgeStyle: Int = Typeface.NORMAL,
+  var badgeTypeface: Typeface? = null,
+  var badgeGravity: Int = Gravity.CENTER,
+  var badgeDuration: Long = 300L,
+  var badgeAnimation: BadgeAnimation = BadgeAnimation.NONE,
+  var badgeAnimationInterpolator: BadgeAnimationInterpolator = BadgeAnimationInterpolator.NORMAL,
 
-  @ColorInt
-  val badgeTextColor: Int = builder.badgeTextColor
+  @ColorInt var badgeTextColor: Int = Color.WHITE,
+  @Sp var badgeTextSize: Float = 9f,
+  @ColorInt var badgeColor: Int = Color.BLACK,
+  @Px var badgeMargin: Int = 8,
+  @Px var badgePaddingLeft: Int = 6,
+  @Px var badgePaddingTop: Int = 2,
+  @Px var badgePaddingRight: Int = 6,
+  @Px var badgePaddingBottom: Int = 2,
+  @Px var badgeRadius: Int = 16
 
-  @Sp
-  val badgeTextSize: Float = builder.badgeTextSize
-
-  @ColorInt
-  val badgeColor: Int = builder.badgeColor
-
-  @Px
-  val badgeMargin: Int = builder.badgeMargin
-
-  @Px
-  val badgePaddingLeft: Int = builder.badgePaddingLeft
-
-  @Px
-  val badgePaddingTop: Int = builder.badgePaddingTop
-
-  @Px
-  val badgePaddingRight: Int = builder.badgePaddingRight
-
-  @Px
-  val badgePaddingBottom: Int = builder.badgePaddingBottom
-
-  @Px
-  val badgeRadius: Int = builder.badgeRadius
+) {
 
   /** Builder class for [BadgeForm]. */
   @BadgeFormDsl
@@ -249,6 +234,12 @@ data class BadgeForm(private val builder: Builder) {
     /** sets a duration of the badge. */
     fun setBadgeDuration(value: Long) = apply { this.badgeDuration = value }
 
-    fun build() = BadgeForm(this)
+    fun build() = BadgeForm(
+      badge, badgeText, badgeStyle, badgeTypeface, badgeGravity, badgeDuration,
+      badgeAnimation, badgeAnimationInterpolator, badgeTextColor, badgeTextSize,
+      badgeColor, _badgeMargin, badgePaddingLeft, badgePaddingTop, badgePaddingRight,
+      badgePaddingBottom, badgeRadius
+    )
+
   }
 }

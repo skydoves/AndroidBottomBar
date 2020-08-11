@@ -16,6 +16,7 @@
 
 package com.skydoves.androidbottombardemo
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,8 @@ import com.skydoves.androidbottombar.BottomMenuItem
 import com.skydoves.androidbottombar.OnMenuItemSelectedListener
 import com.skydoves.androidbottombar.animations.BadgeAnimation
 import com.skydoves.androidbottombar.forms.badgeForm
+import com.skydoves.androidbottombar.forms.iconForm
+import com.skydoves.androidbottombar.forms.titleForm
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,18 +38,28 @@ class MainActivity : AppCompatActivity() {
       offscreenPageLimit = 3
     }
 
+    val titleForm = titleForm(this) {
+      setTitleColor(Color.WHITE)
+      setTitleActiveColorRes(R.color.md_blue_200)
+    }
+
+    val iconForm = iconForm(this) {
+      setIconSize(28)
+    }
+
     val badgeForm = badgeForm(this) {
       setBadgeTextSize(9f)
-      setBadgePaddingLeft(6)
-      setBadgePaddingRight(6)
+      setBadgePaddingLeft(2)
+      setBadgePaddingRight(2)
       setBadgeDuration(550)
     }
 
     androidBottomBar.addBottomMenuItems(mutableListOf(
       BottomMenuItem(this)
-        .setTitle("Movie")
-        .setTitleActiveColorRes(R.color.md_blue_200)
+        .setTitleForm(titleForm)
+        .setIconForm(iconForm)
         .setBadgeForm(badgeForm)
+        .setTitle("Movie")
         .setBadgeColorRes(R.color.md_blue_200)
         .setBadgeAnimation(BadgeAnimation.FADE)
         .setBadgeText("New!")
@@ -54,15 +67,18 @@ class MainActivity : AppCompatActivity() {
         .build(),
 
       BottomMenuItem(this)
+        .setTitleForm(titleForm)
+        .setIconForm(iconForm)
+        .setBadgeForm(badgeForm)
         .setTitle("Tv")
-        .setTitleActiveColorRes(R.color.md_blue_200)
         .setIcon(R.drawable.ic_tv)
         .build(),
 
       BottomMenuItem(this)
-        .setTitle("star")
-        .setTitleActiveColorRes(R.color.md_blue_200)
+        .setTitleForm(titleForm)
+        .setIconForm(iconForm)
         .setBadgeForm(badgeForm)
+        .setTitle("star")
         .setBadgeText("⭐⭐⭐")
         .setBadgeColorRes(R.color.white)
         .setBadgeTextColorRes(R.color.black)
@@ -71,9 +87,10 @@ class MainActivity : AppCompatActivity() {
         .build(),
 
       BottomMenuItem(this)
-        .setTitle("Social")
-        .setTitleActiveColorRes(R.color.md_blue_200)
+        .setTitleForm(titleForm)
+        .setIconForm(iconForm)
         .setBadgeForm(badgeForm)
+        .setTitle("Social")
         .setBadgeColorRes(R.color.md_red_900)
         .setBadgeAnimation(BadgeAnimation.SCALE)
         .setBadgeText("999+")

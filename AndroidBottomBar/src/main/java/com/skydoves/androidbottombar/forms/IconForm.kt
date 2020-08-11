@@ -35,25 +35,21 @@ annotation class IconFormDsl
 
 /** creates an instance of [IconForm] from [IconForm.Builder] using kotlin dsl. */
 @IconFormDsl
-inline fun iconForm(context: Context, block: IconForm.Builder.() -> Unit): IconForm.Builder =
-  IconForm.Builder(context).apply(block)
+inline fun iconForm(context: Context, block: IconForm.Builder.() -> Unit): IconForm =
+  IconForm.Builder(context).apply(block).build()
 
 /**
  * IconForm is an attribute class that has icon attributes
  * for customizing menu item icons easily.
  */
-data class IconForm(private val builder: Builder) {
+data class IconForm(
 
-  val icon = builder.icon
+  var icon: Drawable? = null,
+  @Px var iconSize: Int = 28,
+  @ColorInt var iconColor: Int = Color.WHITE,
+  @ColorInt var iconActiveColor: Int = Color.WHITE
 
-  @Px
-  val iconSize = builder.iconSize
-
-  @ColorInt
-  val iconColor = builder.iconColor
-
-  @ColorInt
-  val iconActiveColor = builder.iconActiveColor
+) {
 
   /** Builder class for [IconForm]. */
   @IconFormDsl
@@ -101,6 +97,6 @@ data class IconForm(private val builder: Builder) {
       this.iconActiveColor = context.contextColor(value)
     }
 
-    fun build() = IconForm(this)
+    fun build() = IconForm(icon, iconSize, iconColor, iconActiveColor)
   }
 }
