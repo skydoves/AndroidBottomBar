@@ -125,6 +125,5 @@ data class TitleForm(
       title, titleStyle, titleTypeface, titleGravity,
       titlePadding, titleSize, titleColor, titleActiveColor
     )
-
   }
 }

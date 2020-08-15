@@ -240,6 +240,5 @@ data class BadgeForm(
       badgeColor, _badgeMargin, badgePaddingLeft, badgePaddingTop, badgePaddingRight,
       badgePaddingBottom, badgeRadius
     )
-
   }
 }
