@@ -23,8 +23,8 @@ import android.util.TypedValue
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.skydoves.androidbottombar.R
 import com.skydoves.androidbottombar.annotations.Dp
 
@@ -59,7 +59,7 @@ internal fun Context.contextColor(@ColorRes resource: Int): Int {
 
 /** gets a drawable from the resource. */
 internal fun Context.resourceDrawable(@DrawableRes resource: Int): Drawable? {
-  return ResourcesCompat.getDrawable(resources, resource, null)
+  return AppCompatResources.getDrawable(this, resource)
 }
 
 /** gets a dimension pixel size from dimension resource. */

@@ -38,5 +38,4 @@
     android:maxLength="5"
     android:maxLines="1"
     android:visibility="gone" />
-
 </FrameLayout>

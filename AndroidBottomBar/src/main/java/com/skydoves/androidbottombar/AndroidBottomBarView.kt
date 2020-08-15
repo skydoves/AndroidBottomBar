@@ -35,6 +35,7 @@ import com.skydoves.androidbottombar.annotations.Dp
 import com.skydoves.androidbottombar.databinding.LayoutBottombarViewBinding
 import com.skydoves.androidbottombar.extensions.accentColor
 import com.skydoves.androidbottombar.extensions.dp2Px
+import com.skydoves.androidbottombar.extensions.resourceDrawable
 import com.skydoves.androidbottombar.extensions.translateX
 import com.skydoves.androidbottombar.extensions.visible
 
@@ -198,8 +199,12 @@ class AndroidBottomBarView @JvmOverloads constructor(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_color,
       this._indicatorColor)
 
-    this._indicatorDrawable = typedArray.getDrawable(
-      R.styleable.AndroidBottomBarView_bottomBar_indicator_drawable)
+    typedArray.getResourceId(
+      R.styleable.AndroidBottomBarView_bottomBar_indicator_drawable, -1).also {
+      if (it != -1) {
+        this._indicatorDrawable = context.resourceDrawable(it)
+      }
+    }
 
     this._indicatorRadius = typedArray.getDimensionPixelSize(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_radius,
