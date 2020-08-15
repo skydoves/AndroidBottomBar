@@ -73,9 +73,9 @@ class BottomMenuItemView @JvmOverloads constructor(
   private fun updateBottomMenuItemViewConfig(config: BottomMenuItemViewConfig) {
     with(binding) {
       val menuItem = config.bottomMenuItem
-      title.applyTitleForm(menuItem.titleForm.build())
-      icon.applyIconForm(menuItem.iconForm.build())
-      badge.applyBadgeForm(menuItem.badgeForm.build())
+      title.applyTitleForm(menuItem.titleForm)
+      icon.applyIconForm(menuItem.iconForm)
+      badge.applyBadgeForm(menuItem.badgeForm)
       when (config.bottomBarFlavor) {
         BottomBarFlavor.ICON -> {
           icon.visible(true)

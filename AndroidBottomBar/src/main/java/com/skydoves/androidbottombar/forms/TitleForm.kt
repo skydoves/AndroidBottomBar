@@ -36,31 +36,25 @@ annotation class TitleFormDsl
 
 /** creates an instance of [TitleForm] from [TitleForm.Builder] using kotlin dsl. */
 @TitleFormDsl
-inline fun titleForm(context: Context, block: TitleForm.Builder.() -> Unit): TitleForm.Builder =
-  TitleForm.Builder(context).apply(block)
+inline fun titleForm(context: Context, block: TitleForm.Builder.() -> Unit): TitleForm =
+  TitleForm.Builder(context).apply(block).build()
 
 /**
  * [TitleForm] is an attribute class that has some attributes about text
  * for customizing menu item title easily.
  */
-data class TitleForm(private val builder: Builder) {
+data class TitleForm(
 
-  val title: CharSequence = builder.title
-  val titleStyle: Int = builder.titleStyle
-  val titleTypeface: Typeface? = builder.titleTypeface
-  val titleGravity: Int = builder.titleGravity
+  var title: CharSequence = "",
+  var titleStyle: Int = Typeface.NORMAL,
+  var titleTypeface: Typeface? = null,
+  var titleGravity: Int = Gravity.CENTER,
+  @Px var titlePadding: Int = 6,
+  @Sp var titleSize: Float = 14f,
+  @ColorInt var titleColor: Int = Color.WHITE,
+  @ColorInt var titleActiveColor: Int = Color.WHITE
 
-  @Px
-  val titlePadding: Int = builder.titlePadding
-
-  @Sp
-  val titleSize: Float = builder.titleSize
-
-  @ColorInt
-  val titleColor: Int = builder.titleColor
-
-  @ColorInt
-  val titleActiveColor: Int = builder.titleActiveColor
+) {
 
   /** Builder class for [TitleForm]. */
   @TitleFormDsl
@@ -127,6 +121,10 @@ data class TitleForm(private val builder: Builder) {
     /** sets gravity of the title. */
     fun setTitleGravity(value: Int) = apply { this.titleGravity = value }
 
-    fun build() = TitleForm(this)
+    fun build() = TitleForm(
+      title, titleStyle, titleTypeface, titleGravity,
+      titlePadding, titleSize, titleColor, titleActiveColor
+    )
+
   }
 }
