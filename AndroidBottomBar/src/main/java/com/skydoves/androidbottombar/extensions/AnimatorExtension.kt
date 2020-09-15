@@ -16,8 +16,6 @@
 
 package com.skydoves.androidbottombar.extensions
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.view.View
 import android.view.ViewPropertyAnimator
 import android.view.animation.Interpolator
@@ -48,16 +46,4 @@ internal fun View.animateFade(
     .setDuration(duration)
     .setInterpolator(interpolator)
     .withLayer()
-}
-
-/** do something block codes after finish animation. */
-internal fun Animator.doAfterFinish(block: () -> Unit) {
-  this.addListener(
-    object : AnimatorListenerAdapter() {
-      override fun onAnimationEnd(animation: Animator?) {
-        super.onAnimationEnd(animation)
-        block()
-      }
-    }
-  )
 }

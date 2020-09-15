@@ -18,10 +18,8 @@ package com.skydoves.androidbottombar.extensions
 
 import android.animation.ValueAnimator
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
-import android.widget.FrameLayout
 import com.skydoves.androidbottombar.BottomMenuItemViewConfig
 import com.skydoves.androidbottombar.animations.getInterpolator
 import com.skydoves.androidbottombar.annotations.Dp
@@ -38,13 +36,6 @@ internal fun View.visible(value: Boolean) {
     this.visibility = View.VISIBLE
   } else {
     this.visibility = View.GONE
-  }
-}
-
-/** updates [FrameLayout]'s layout params. */
-internal fun ViewGroup.updateLayoutParams(block: ViewGroup.LayoutParams.() -> Unit) {
-  layoutParams?.let {
-    layoutParams = it.apply { block(this) }
   }
 }
 

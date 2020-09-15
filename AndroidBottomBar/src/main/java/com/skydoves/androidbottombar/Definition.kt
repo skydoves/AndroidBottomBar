@@ -17,4 +17,4 @@
 package com.skydoves.androidbottombar
 
 /** definition of unselected index. */
-const val INDEX_UNSELECTED = 0
+internal const val INDEX_UNSELECTED = 0
