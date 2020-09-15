@@ -36,10 +36,11 @@ import com.skydoves.androidbottombar.extensions.contextColor
 import com.skydoves.androidbottombar.extensions.dp2Px
 
 @DslMarker
-annotation class BadgeFormDsl
+internal annotation class BadgeFormDsl
 
 /** creates an instance of [BadgeForm] from [BadgeForm.Builder] using kotlin dsl. */
 @BadgeFormDsl
+@JvmSynthetic
 inline fun badgeForm(context: Context, block: BadgeForm.Builder.() -> Unit): BadgeForm =
   BadgeForm.Builder(context).apply(block).build()
 

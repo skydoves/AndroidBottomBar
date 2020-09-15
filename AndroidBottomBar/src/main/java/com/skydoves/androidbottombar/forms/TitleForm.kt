@@ -32,10 +32,11 @@ import com.skydoves.androidbottombar.extensions.contextColor
 import com.skydoves.androidbottombar.extensions.dp2Px
 
 @DslMarker
-annotation class TitleFormDsl
+internal annotation class TitleFormDsl
 
 /** creates an instance of [TitleForm] from [TitleForm.Builder] using kotlin dsl. */
 @TitleFormDsl
+@JvmSynthetic
 inline fun titleForm(context: Context, block: TitleForm.Builder.() -> Unit): TitleForm =
   TitleForm.Builder(context).apply(block).build()
 
