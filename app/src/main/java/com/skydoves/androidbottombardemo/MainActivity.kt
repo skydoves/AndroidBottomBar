@@ -19,6 +19,7 @@ package com.skydoves.androidbottombardemo
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.skydoves.androidbottombar.BottomMenuItem
 import com.skydoves.androidbottombar.OnMenuItemSelectedListener
@@ -100,18 +101,16 @@ class MainActivity : AppCompatActivity() {
       )
     )
 
-    androidBottomBar.onMenuItemSelectedListener = object : OnMenuItemSelectedListener {
-      override fun onMenuItemSelected(index: Int, bottomMenuItem: BottomMenuItem, fromUser: Boolean) {
-        viewpager.currentItem = index
-        androidBottomBar.dismissBadge(index)
-      }
+    androidBottomBar.onMenuItemSelectedListener = OnMenuItemSelectedListener { index, _, _ ->
+      viewpager.currentItem = index
+      androidBottomBar.dismissBadge(index)
     }
 
     androidBottomBar.setOnBottomMenuInitializedListener {
       androidBottomBar.bindViewPager(viewpager)
 
       // show badges after 1500 milliseconds.
-      Handler().postDelayed(
+      Handler(Looper.getMainLooper()).postDelayed(
         {
           androidBottomBar.showBadge(index = 0)
           androidBottomBar.showBadge(2)

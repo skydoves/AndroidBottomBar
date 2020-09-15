@@ -35,7 +35,7 @@ dokka {
 }
 
 tasks.withType(Javadoc) {
-    excludes = ['**/*.kt']
+    excludes = ['**/*.kt', '**/*.java']
     options.addBooleanOption('Xdoclint:none', true)
 }
 
