@@ -100,11 +100,13 @@ class BottomMenuItemView @JvmOverloads constructor(
       translateViewUp(
         target = selectedView,
         config = config,
-        from = layoutHeight)
+        from = layoutHeight
+      )
       translateViewDown(
         target = unSelectedView,
         config = config,
-        to = -layoutHeight)
+        to = -layoutHeight
+      )
     }
   }
 
@@ -115,11 +117,13 @@ class BottomMenuItemView @JvmOverloads constructor(
       translateViewDown(
         target = selectedView,
         config = config,
-        to = layoutHeight)
+        to = layoutHeight
+      )
       translateViewUp(
         target = unSelectedView,
         config = config,
-        from = -layoutHeight)
+        from = -layoutHeight
+      )
     }
   }
 
@@ -131,7 +135,8 @@ class BottomMenuItemView @JvmOverloads constructor(
           config.bottomMenuItem.titleForm.titleActiveColor
         } else {
           config.bottomMenuItem.titleForm.titleColor
-        })
+        }
+      )
       ImageViewCompat.setImageTintList(
         binding.icon,
         ColorStateList.valueOf(
@@ -139,7 +144,8 @@ class BottomMenuItemView @JvmOverloads constructor(
             config.bottomMenuItem.iconForm.iconActiveColor
           } else {
             config.bottomMenuItem.iconForm.iconColor
-          })
+          }
+        )
       )
     }
   }
@@ -165,14 +171,16 @@ class BottomMenuItemView @JvmOverloads constructor(
             toX = 1.0f,
             toY = 1.0f,
             duration = badgeForm.badgeDuration,
-            interpolator = badgeForm.badgeAnimationInterpolator.getInterpolator())
+            interpolator = badgeForm.badgeAnimationInterpolator.getInterpolator()
+          )
         }
         BadgeAnimation.FADE -> {
           alpha = 0f
           animateFade(
             alpha = 1.0f,
             duration = badgeForm.badgeDuration,
-            interpolator = badgeForm.badgeAnimationInterpolator.getInterpolator())
+            interpolator = badgeForm.badgeAnimationInterpolator.getInterpolator()
+          )
         }
       }
     }
@@ -190,7 +198,8 @@ class BottomMenuItemView @JvmOverloads constructor(
       from = from,
       to = 0f,
       config = config,
-      onStart = { it.visible(true) })
+      onStart = { it.visible(true) }
+    )
   }
 
   private fun translateViewDown(
@@ -202,6 +211,7 @@ class BottomMenuItemView @JvmOverloads constructor(
       from = 0f,
       to = to,
       config = config,
-      onStart = { it.visible(false) })
+      onStart = { it.visible(false) }
+    )
   }
 }

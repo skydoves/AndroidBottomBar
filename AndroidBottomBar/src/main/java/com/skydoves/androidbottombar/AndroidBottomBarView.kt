@@ -78,18 +78,18 @@ class AndroidBottomBarView @JvmOverloads constructor(
 
   private val onMenuItemClickListener:
     (BottomMenuItemViewConfig?, BottomMenuItemView) -> Unit = { config, view ->
-    config?.let {
-      if (it.index != selectedIndex) {
-        selectedIndex = it.index
-        animateBottomBarItem(view)
-        animateIndicator(config)
-        onMenuItemSelectedListener?.onMenuItemSelected(it.index, it.bottomMenuItem, true)
+      config?.let {
+        if (it.index != selectedIndex) {
+          selectedIndex = it.index
+          animateBottomBarItem(view)
+          animateIndicator(config)
+          onMenuItemSelectedListener?.onMenuItemSelected(it.index, it.bottomMenuItem, true)
+        }
+      }
+      bottomMenuItemViews.forEach {
+        it.setIsActive(it == view)
       }
     }
-    bottomMenuItemViews.forEach {
-      it.setIsActive(it == view)
-    }
-  }
 
   private var _visibleIndicator: Boolean = true
 
@@ -160,7 +160,8 @@ class AndroidBottomBarView @JvmOverloads constructor(
       attrs,
       R.styleable.AndroidBottomBarView,
       defStyleAttr,
-      0)
+      0
+    )
     try {
       setTypeArray(typedArray)
     } finally {
@@ -185,22 +186,28 @@ class AndroidBottomBarView @JvmOverloads constructor(
 
     this.selectedIndex = typedArray.getInteger(
       R.styleable.AndroidBottomBarView_bottomBar_selectedIndex,
-      this.selectedIndex)
+      this.selectedIndex
+    )
 
     this.animationDuration = typedArray.getInteger(
       R.styleable.AndroidBottomBarView_bottomBar_duration,
-      this.animationDuration.toInt()).toLong()
+      this.animationDuration.toInt()
+    ).toLong()
 
     this._visibleIndicator = typedArray.getBoolean(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_visible,
-      this._visibleIndicator)
+      this._visibleIndicator
+    )
 
     this._indicatorColor = typedArray.getColor(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_color,
-      this._indicatorColor)
+      this._indicatorColor
+    )
 
     typedArray.getResourceId(
-      R.styleable.AndroidBottomBarView_bottomBar_indicator_drawable, -1).also {
+      R.styleable.AndroidBottomBarView_bottomBar_indicator_drawable,
+      -1
+    ).also {
       if (it != -1) {
         this._indicatorDrawable = context.resourceDrawable(it)
       }
@@ -208,15 +215,18 @@ class AndroidBottomBarView @JvmOverloads constructor(
 
     this._indicatorRadius = typedArray.getDimensionPixelSize(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_radius,
-      this._indicatorRadius.toInt()).toFloat()
+      this._indicatorRadius.toInt()
+    ).toFloat()
 
     this._indicatorHeight = typedArray.getDimensionPixelSize(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_height,
-      this._indicatorHeight)
+      this._indicatorHeight
+    )
 
     this._indicatorPadding = typedArray.getDimensionPixelSize(
       R.styleable.AndroidBottomBarView_bottomBar_indicator_padding,
-      this._indicatorPadding)
+      this._indicatorPadding
+    )
   }
 
   override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -243,11 +253,15 @@ class AndroidBottomBarView @JvmOverloads constructor(
             bottomMenuItem = bottomMenuItems[index],
             bottomBarFlavor = bottomBarFlavor,
             animation = menuAnimation,
-            duration = animationDuration)
+            duration = animationDuration
+          )
           bottomMenuItemViews.add(this)
           if (index == selectedIndex) {
             onMenuItemSelectedListener?.onMenuItemSelected(
-              selectedIndex, requireNotNull(config?.bottomMenuItem), false)
+              selectedIndex,
+              requireNotNull(config?.bottomMenuItem),
+              false
+            )
             animateBottomBarItem(this)
             setIsActive(true)
           }
@@ -287,8 +301,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
     try {
       return bottomMenuItemViews[index]
     } catch (e: Exception) {
-      throw Exception("AndroidBottomBarView is not initialized completely yet. " +
-        "Use the function in the OnBottomMenuInitializedListener. ")
+      throw Exception(
+        "AndroidBottomBarView is not initialized completely yet. " +
+          "Use the function in the OnBottomMenuInitializedListener. "
+      )
     }
   }
 
@@ -316,22 +332,24 @@ class AndroidBottomBarView @JvmOverloads constructor(
    * items and moving an indicator automatically by scrolling of viewPager.
    */
   fun bindViewPager(viewPager: ViewPager) {
-    viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-      override fun onPageScrollStateChanged(state: Int) = Unit
-      override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        if ((selectedIndex > position && previousPosition < positionOffset)) {
-          post {
-            indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
-            previousPosition = positionOffset
+    viewPager.addOnPageChangeListener(
+      object : ViewPager.OnPageChangeListener {
+        override fun onPageScrollStateChanged(state: Int) = Unit
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+          if ((selectedIndex > position && previousPosition < positionOffset)) {
+            post {
+              indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+              previousPosition = positionOffset
+            }
           }
         }
-      }
 
-      override fun onPageSelected(position: Int) {
-        val bottomMenuItemView = getBottomMenuItemView(position)
-        onMenuItemClickListener.invoke(bottomMenuItemView.config, bottomMenuItemView)
+        override fun onPageSelected(position: Int) {
+          val bottomMenuItemView = getBottomMenuItemView(position)
+          onMenuItemClickListener.invoke(bottomMenuItemView.config, bottomMenuItemView)
+        }
       }
-    })
+    )
   }
 
   /**
@@ -339,23 +357,25 @@ class AndroidBottomBarView @JvmOverloads constructor(
    * items and moving an indicator automatically by scrolling of viewPager.
    */
   fun bindViewPager2(viewPager2: ViewPager2) {
-    viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-      override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-        if ((selectedIndex > position && previousPosition < positionOffset)) {
-          post {
-            indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
-            previousPosition = positionOffset
+    viewPager2.registerOnPageChangeCallback(
+      object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+          super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+          if ((selectedIndex > position && previousPosition < positionOffset)) {
+            post {
+              indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+              previousPosition = positionOffset
+            }
           }
         }
-      }
 
-      override fun onPageSelected(position: Int) {
-        super.onPageSelected(position)
-        val bottomMenuItemView = getBottomMenuItemView(position)
-        onMenuItemClickListener.invoke(bottomMenuItemView.config, bottomMenuItemView)
+        override fun onPageSelected(position: Int) {
+          super.onPageSelected(position)
+          val bottomMenuItemView = getBottomMenuItemView(position)
+          onMenuItemClickListener.invoke(bottomMenuItemView.config, bottomMenuItemView)
+        }
       }
-    })
+    )
   }
 
   /** sets an [OnMenuItemSelectedListener]. */
@@ -402,7 +422,8 @@ class AndroidBottomBarView @JvmOverloads constructor(
         translateX(
           from = x,
           to = (itemWidth * config.index + indicatorPadding).toFloat(),
-          config = config)
+          config = config
+        )
       }
     }
   }

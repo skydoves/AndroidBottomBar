@@ -122,8 +122,14 @@ data class TitleForm(
     fun setTitleGravity(value: Int) = apply { this.titleGravity = value }
 
     fun build() = TitleForm(
-      title, titleStyle, titleTypeface, titleGravity,
-      titlePadding, titleSize, titleColor, titleActiveColor
+      title,
+      titleStyle,
+      titleTypeface,
+      titleGravity,
+      titlePadding,
+      titleSize,
+      titleColor,
+      titleActiveColor
     )
   }
 }

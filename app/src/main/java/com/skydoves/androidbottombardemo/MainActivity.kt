@@ -54,48 +54,50 @@ class MainActivity : AppCompatActivity() {
       setBadgeDuration(550)
     }
 
-    androidBottomBar.addBottomMenuItems(mutableListOf(
-      BottomMenuItem(this)
-        .setTitleForm(titleForm)
-        .setIconForm(iconForm)
-        .setBadgeForm(badgeForm)
-        .setTitle("Movie")
-        .setBadgeColorRes(R.color.md_blue_200)
-        .setBadgeAnimation(BadgeAnimation.FADE)
-        .setBadgeText("New!")
-        .setIcon(R.drawable.ic_movie)
-        .build(),
+    androidBottomBar.addBottomMenuItems(
+      mutableListOf(
+        BottomMenuItem(this)
+          .setTitleForm(titleForm)
+          .setIconForm(iconForm)
+          .setBadgeForm(badgeForm)
+          .setTitle("Movie")
+          .setBadgeColorRes(R.color.md_blue_200)
+          .setBadgeAnimation(BadgeAnimation.FADE)
+          .setBadgeText("New!")
+          .setIcon(R.drawable.ic_movie)
+          .build(),
 
-      BottomMenuItem(this)
-        .setTitleForm(titleForm)
-        .setIconForm(iconForm)
-        .setBadgeForm(badgeForm)
-        .setTitle("Tv")
-        .setIcon(R.drawable.ic_tv)
-        .build(),
+        BottomMenuItem(this)
+          .setTitleForm(titleForm)
+          .setIconForm(iconForm)
+          .setBadgeForm(badgeForm)
+          .setTitle("Tv")
+          .setIcon(R.drawable.ic_tv)
+          .build(),
 
-      BottomMenuItem(this)
-        .setTitleForm(titleForm)
-        .setIconForm(iconForm)
-        .setBadgeForm(badgeForm)
-        .setTitle("star")
-        .setBadgeText("⭐⭐⭐")
-        .setBadgeColorRes(R.color.white)
-        .setBadgeTextColorRes(R.color.black)
-        .setBadgeAnimation(BadgeAnimation.SCALE)
-        .setIcon(R.drawable.ic_star)
-        .build(),
+        BottomMenuItem(this)
+          .setTitleForm(titleForm)
+          .setIconForm(iconForm)
+          .setBadgeForm(badgeForm)
+          .setTitle("star")
+          .setBadgeText("⭐⭐⭐")
+          .setBadgeColorRes(R.color.white)
+          .setBadgeTextColorRes(R.color.black)
+          .setBadgeAnimation(BadgeAnimation.SCALE)
+          .setIcon(R.drawable.ic_star)
+          .build(),
 
-      BottomMenuItem(this)
-        .setTitleForm(titleForm)
-        .setIconForm(iconForm)
-        .setBadgeForm(badgeForm)
-        .setTitle("Social")
-        .setBadgeColorRes(R.color.md_red_900)
-        .setBadgeAnimation(BadgeAnimation.SCALE)
-        .setBadgeText("999+")
-        .setIcon(R.drawable.ic_social)
-        .build())
+        BottomMenuItem(this)
+          .setTitleForm(titleForm)
+          .setIconForm(iconForm)
+          .setBadgeForm(badgeForm)
+          .setTitle("Social")
+          .setBadgeColorRes(R.color.md_red_900)
+          .setBadgeAnimation(BadgeAnimation.SCALE)
+          .setBadgeText("999+")
+          .setIcon(R.drawable.ic_social)
+          .build()
+      )
     )
 
     androidBottomBar.onMenuItemSelectedListener = object : OnMenuItemSelectedListener {
@@ -109,11 +111,14 @@ class MainActivity : AppCompatActivity() {
       androidBottomBar.bindViewPager(viewpager)
 
       // show badges after 1500 milliseconds.
-      Handler().postDelayed({
-        androidBottomBar.showBadge(index = 0)
-        androidBottomBar.showBadge(2)
-        androidBottomBar.showBadge(3)
-      }, 1500L)
+      Handler().postDelayed(
+        {
+          androidBottomBar.showBadge(index = 0)
+          androidBottomBar.showBadge(2)
+          androidBottomBar.showBadge(3)
+        },
+        1500L
+      )
     }
   }
 }

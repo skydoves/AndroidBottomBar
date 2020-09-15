@@ -52,10 +52,12 @@ internal fun View.animateFade(
 
 /** do something block codes after finish animation. */
 internal fun Animator.doAfterFinish(block: () -> Unit) {
-  this.addListener(object : AnimatorListenerAdapter() {
-    override fun onAnimationEnd(animation: Animator?) {
-      super.onAnimationEnd(animation)
-      block()
+  this.addListener(
+    object : AnimatorListenerAdapter() {
+      override fun onAnimationEnd(animation: Animator?) {
+        super.onAnimationEnd(animation)
+        block()
+      }
     }
-  })
+  )
 }

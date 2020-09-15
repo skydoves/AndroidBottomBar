@@ -71,13 +71,17 @@ internal fun View.translateY(
   onStart: (View) -> Unit = {},
   onEnd: (View) -> Unit = {}
 ) {
-  startAnimation(TranslateAnimation(0f, 0f, from, to).apply {
-    this.duration = config.duration
-    this.interpolator = config.animation.getInterpolator()
-    this.setAnimationListener(object : Animation.AnimationListener {
-      override fun onAnimationStart(p0: Animation?) = onStart(this@translateY)
-      override fun onAnimationEnd(p0: Animation?) = onEnd(this@translateY)
-      override fun onAnimationRepeat(p0: Animation?) = Unit
-    })
-  })
+  startAnimation(
+    TranslateAnimation(0f, 0f, from, to).apply {
+      this.duration = config.duration
+      this.interpolator = config.animation.getInterpolator()
+      this.setAnimationListener(
+        object : Animation.AnimationListener {
+          override fun onAnimationStart(p0: Animation?) = onStart(this@translateY)
+          override fun onAnimationEnd(p0: Animation?) = onEnd(this@translateY)
+          override fun onAnimationRepeat(p0: Animation?) = Unit
+        }
+      )
+    }
+  )
 }
