@@ -17,7 +17,7 @@
 package com.skydoves.androidbottombar
 
 /** OnBottomMenuInitializedListener is an interface for listening to the [AndroidBottomBarView] is initialized. */
-interface OnBottomMenuInitializedListener {
+fun interface OnBottomMenuInitializedListener {
 
   /** invoked when the [AndroidBottomBarView] is initialized. */
   fun onInitialized()

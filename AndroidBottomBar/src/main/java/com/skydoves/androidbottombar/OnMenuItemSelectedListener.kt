@@ -17,7 +17,7 @@
 package com.skydoves.androidbottombar
 
 /** OnMenuItemSelectedListener is an interface for listening to the menu item selected. */
-interface OnMenuItemSelectedListener {
+fun interface OnMenuItemSelectedListener {
 
   /** invoked when the menu item is selected. */
   fun onMenuItemSelected(index: Int, bottomMenuItem: BottomMenuItem, fromUser: Boolean)

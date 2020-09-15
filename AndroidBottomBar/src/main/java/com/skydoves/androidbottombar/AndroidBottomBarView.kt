@@ -384,16 +384,9 @@ class AndroidBottomBarView @JvmOverloads constructor(
   }
 
   /** sets an [OnMenuItemSelectedListener] using an lambda. */
+  @JvmSynthetic
   fun setOnMenuItemSelectedListener(block: (index: Int, bottomMenuItem: BottomMenuItem, fromUser: Boolean) -> Unit) {
-    this.onMenuItemSelectedListener = object : OnMenuItemSelectedListener {
-      override fun onMenuItemSelected(
-        index: Int,
-        bottomMenuItem: BottomMenuItem,
-        fromUser: Boolean
-      ) {
-        block(index, bottomMenuItem, fromUser)
-      }
-    }
+    this.onMenuItemSelectedListener = OnMenuItemSelectedListener { index, bottomMenuItem, fromUser -> block(index, bottomMenuItem, fromUser) }
   }
 
   /** sets an [OnBottomMenuInitializedListener]. */
@@ -402,12 +395,9 @@ class AndroidBottomBarView @JvmOverloads constructor(
   }
 
   /** sets an [OnBottomMenuInitializedListener] using an lambda. */
+  @JvmSynthetic
   fun setOnBottomMenuInitializedListener(block: () -> Unit) {
-    this.onBottomMenuInitializedListener = object : OnBottomMenuInitializedListener {
-      override fun onInitialized() {
-        block()
-      }
-    }
+    this.onBottomMenuInitializedListener = OnBottomMenuInitializedListener { block() }
   }
 
   private fun animateBottomBarItem(bottomMenuItemView: BottomMenuItemView) {
