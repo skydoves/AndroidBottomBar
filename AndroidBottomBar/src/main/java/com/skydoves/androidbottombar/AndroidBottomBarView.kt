@@ -51,12 +51,12 @@ class AndroidBottomBarView @JvmOverloads constructor(
 
   private val binding: LayoutBottombarViewBinding =
     LayoutBottombarViewBinding.inflate(LayoutInflater.from(context), this, true)
-  val indicator: View
+  private val indicator: View
     get() = binding.indicator
 
   private var bottomBarFlavor: BottomBarFlavor = BottomBarFlavor.ICON
   private var bottomMenuItems: MutableList<BottomMenuItem> = mutableListOf()
-  var bottomMenuItemViews: MutableList<BottomMenuItemView> = mutableListOf()
+  private var bottomMenuItemViews: MutableList<BottomMenuItemView> = mutableListOf()
 
   var selectedIndex: Int = INDEX_UNSELECTED
     private set

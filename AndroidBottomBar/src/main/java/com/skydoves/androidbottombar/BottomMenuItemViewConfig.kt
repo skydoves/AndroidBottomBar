@@ -22,6 +22,6 @@ data class BottomMenuItemViewConfig(
   val index: Int,
   val bottomMenuItem: BottomMenuItem,
   val bottomBarFlavor: BottomBarFlavor,
-  var animation: BottomMenuAnimation,
-  var duration: Long
+  val animation: BottomMenuAnimation,
+  val duration: Long
 )
