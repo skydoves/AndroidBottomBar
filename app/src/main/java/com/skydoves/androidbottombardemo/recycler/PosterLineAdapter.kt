@@ -27,7 +27,6 @@ import kotlinx.android.synthetic.main.item_poster_line.view.*
 class PosterLineAdapter : RecyclerView.Adapter<PosterLineAdapter.PosterViewHolder>() {
 
   private val items = mutableListOf<Poster>()
-  private var previousTime = System.currentTimeMillis()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
     val inflater = LayoutInflater.from(parent.context)
