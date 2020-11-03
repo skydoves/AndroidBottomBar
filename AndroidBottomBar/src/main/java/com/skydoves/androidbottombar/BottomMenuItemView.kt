@@ -95,7 +95,7 @@ class BottomMenuItemView @JvmOverloads constructor(
 
   /** updates and animates for a selected bottom bar item. */
   fun selectedBottomBarItem() {
-    val config: BottomMenuItemViewConfig = config ?: return
+    val config = config ?: return
     post {
       translateViewUp(
         target = selectedView,
@@ -112,7 +112,7 @@ class BottomMenuItemView @JvmOverloads constructor(
 
   /** updates and animates for an unselected bottom bar item. */
   fun unselectedBottomBarItem() {
-    val config: BottomMenuItemViewConfig = config ?: return
+    val config = config ?: return
     post {
       translateViewDown(
         target = selectedView,
@@ -152,7 +152,7 @@ class BottomMenuItemView @JvmOverloads constructor(
 
   /** shows the badge with a changed text and appearing animation. */
   fun showBadge(badgeText: CharSequence?) {
-    val config: BottomMenuItemViewConfig = config ?: return
+    val config = config ?: return
     val badgeForm = config.bottomMenuItem.badgeForm
     with(binding.badge) {
       visible(true)
