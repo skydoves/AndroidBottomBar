@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     androidBottomBar.addBottomMenuItems(
-      mutableListOf(
+      listOf(
         BottomMenuItem(this)
           .setTitleForm(titleForm)
           .setIconForm(iconForm)

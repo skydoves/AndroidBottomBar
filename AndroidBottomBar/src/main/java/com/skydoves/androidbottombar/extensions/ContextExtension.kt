@@ -20,8 +20,8 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.TypedValue
+import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -41,6 +41,7 @@ internal fun Context.dp2Px(@Dp dp: Float): Float {
 }
 
 /** gets an accent color. */
+@ColorInt
 internal fun Context.accentColor(): Int {
   val colorAttr: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     R.attr.colorAccent
@@ -53,6 +54,7 @@ internal fun Context.accentColor(): Int {
 }
 
 /** gets a color from the resource. */
+@ColorInt
 internal fun Context.contextColor(@ColorRes resource: Int): Int {
   return ContextCompat.getColor(this, resource)
 }
@@ -60,9 +62,4 @@ internal fun Context.contextColor(@ColorRes resource: Int): Int {
 /** gets a drawable from the resource. */
 internal fun Context.resourceDrawable(@DrawableRes resource: Int): Drawable? {
   return AppCompatResources.getDrawable(this, resource)
-}
-
-/** gets a dimension pixel size from dimension resource. */
-internal fun Context.dimen(@DimenRes dimenRes: Int): Int {
-  return resources.getDimensionPixelSize(dimenRes)
 }
