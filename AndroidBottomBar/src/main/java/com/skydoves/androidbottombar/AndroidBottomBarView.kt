@@ -38,6 +38,7 @@ import com.skydoves.androidbottombar.extensions.dp2Px
 import com.skydoves.androidbottombar.extensions.resourceDrawable
 import com.skydoves.androidbottombar.extensions.translateX
 import com.skydoves.androidbottombar.extensions.visible
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * AndroidBottomBarView is a lightweight bottom navigation view,
@@ -150,6 +151,8 @@ class AndroidBottomBarView @JvmOverloads constructor(
     }
 
   private var previousPosition: Float = 0f
+
+  private val isInticatorInitialized = AtomicBoolean(false)
 
   init {
     obtainStyledAttributes(attrs, defStyleAttr)
@@ -336,6 +339,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
       object : ViewPager.OnPageChangeListener {
         override fun onPageScrollStateChanged(state: Int) = Unit
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+          if (isInticatorInitialized.compareAndSet(false, true)) {
+            indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
+            return
+          }
           if ((selectedIndex > position && previousPosition < positionOffset)) {
             post {
               indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
@@ -361,6 +368,10 @@ class AndroidBottomBarView @JvmOverloads constructor(
       object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
           super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+          if (isInticatorInitialized.compareAndSet(false, true)) {
+            indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
+            return
+          }
           if ((selectedIndex > position && previousPosition < positionOffset)) {
             post {
               indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
