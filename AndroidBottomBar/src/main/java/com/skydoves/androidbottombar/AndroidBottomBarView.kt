@@ -339,14 +339,18 @@ class AndroidBottomBarView @JvmOverloads constructor(
       object : ViewPager.OnPageChangeListener {
         override fun onPageScrollStateChanged(state: Int) = Unit
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-          if (isInticatorInitialized.compareAndSet(false, true)) {
-            indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
-            return
-          }
-          if ((selectedIndex > position && previousPosition < positionOffset)) {
-            post {
-              indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
-              previousPosition = positionOffset
+          when {
+            (isInticatorInitialized.compareAndSet(false, true)) -> {
+              post {
+                indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
+                previousPosition = positionOffset
+              }
+            }
+            (selectedIndex > position && previousPosition < positionOffset) -> {
+              post {
+                indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+                previousPosition = positionOffset
+              }
             }
           }
         }
@@ -368,14 +372,18 @@ class AndroidBottomBarView @JvmOverloads constructor(
       object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
           super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-          if (isInticatorInitialized.compareAndSet(false, true)) {
-            indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
-            return
-          }
-          if ((selectedIndex > position && previousPosition < positionOffset)) {
-            post {
-              indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
-              previousPosition = positionOffset
+          when {
+            (isInticatorInitialized.compareAndSet(false, true)) -> {
+              post {
+                indicator.x = (itemWidth * selectedIndex + indicatorPadding).toFloat()
+                previousPosition = positionOffset
+              }
+            }
+            (selectedIndex > position && previousPosition < positionOffset) -> {
+              post {
+                indicator.x = itemWidth * position + itemWidth * positionOffset + indicatorPadding
+                previousPosition = positionOffset
+              }
             }
           }
         }
