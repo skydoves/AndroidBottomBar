@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
 apply from: '../dependencies.gradle'
-apply from: '../publish.gradle'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -13,7 +12,8 @@ android {
         versionName versions.versionName
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding true
+        buildConfig false
     }
 }
 
@@ -26,17 +26,5 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:$versions.viewPager2Version"
 }
 
-dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
-    configuration {
-        moduleName = 'AndroidBottomBar'
-    }
-}
-
-tasks.withType(Javadoc) {
-    excludes = ['**/*.kt', '**/*.java']
-    options.addBooleanOption('Xdoclint:none', true)
-}
-
+apply plugin: "com.vanniktech.maven.publish"
 apply from: '../spotless.gradle'
