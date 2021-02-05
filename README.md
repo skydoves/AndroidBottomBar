@@ -25,7 +25,6 @@
 </p>
 
 ## Including in your project
-[![Download](https://api.bintray.com/packages/devmagician/maven/androidbottombar/images/download.svg) ](https://bintray.com/devmagician/maven/androidbottombar/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/androidbottombar.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22androidbottombar%22)
 [![Jitpack](https://jitpack.io/v/skydoves/AndroidBottomBar.svg)](https://jitpack.io/#skydoves/AndroidBottomBar)
 ### Gradle
@@ -33,7 +32,7 @@ Add below codes to your **root** `build.gradle` file (not your module build.grad
 ```gradle
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 ```
