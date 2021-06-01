@@ -342,6 +342,9 @@ indicator_padding | dimension | 2dp | padding of the indicator.
 menuAnimation | enum | normal | animations for selected or unselected BottomMenuItemView with an interpolator.
 duration | integer | 300 | duration of the menu animation.
 
+## Design Credits
+All design and inspiration credits goes to [Readable Tab Bar](https://dribbble.com/shots/6130593-Readable-Tab-Bar). 
+  
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/skydoves/AndroidBottomBar/stargazers)__ for this repository. :star: <br>
 And __[follow](https://github.com/skydoves)__ me for my next creations! 🤩
